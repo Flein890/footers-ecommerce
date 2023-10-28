@@ -2,6 +2,10 @@ const carrousel = document.querySelector(".carrousel");
 const slider = document.querySelector(".images");
 const nextButton = document.querySelector(".next");
 const prevButton = document.querySelector(".prev");
+//DOTS
+const dotsHTML = document.querySelectorAll(".dot");
+const dots = [...dotsHTML];
+console.log(dots);
 
 //This is the width i have to slide to the next img
 const slideWidth = slider.clientWidth;
@@ -34,6 +38,7 @@ const next = () => {
   }
   // onClientWidth();
   slideMovement();
+  toggleDots();
 };
 
 const prev = () => {
@@ -43,7 +48,15 @@ const prev = () => {
     slideIndex--;
   }
   slideMovement();
+  toggleDots();
 };
+const toggleDots = () => {
+  dots.forEach((dot) => {
+    dot.classList.remove("dot-selected");
+  });
+  dots[slideIndex].classList.add("dot-selected");
+};
+toggleDots();
 
 //________________________BRAND CARROUSEL_______________________
 const brandCarrousel = document.querySelector(".brand--carrousel__images");

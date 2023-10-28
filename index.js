@@ -14,7 +14,16 @@ const body = document.querySelector("body");
 const cartIcon = document.querySelector(".cart-icon");
 const cart = document.querySelector(".cart");
 const overlay = document.querySelector(".overlay");
-console.log(overlay);
+//MOUSE
+// const cursor = document.querySelector(".cursor");
+// const cursorFollow = (e) => {
+// cursor.style.top = e.pageY + "px";
+// cursor.style.left = e.pageX + "px";
+// cursor.setAttribute(
+//   "style",
+//   "transform: translate(" + e.pageX + "px, " + e.pageY + "px)"
+// );
+// };
 
 //funciones para que solo se abra un carrito
 const toggleOpenedMenu = () => {
