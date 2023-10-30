@@ -893,15 +893,8 @@
 }
 
 @media (max-width: 576px) {
-  .header {
-    position: fixed;
-    top: 0;
-  }
   .carrousel img {
     height: 300px;
-  }
-  .main {
-    padding-top: 50px;
   }
   .nav--a {
     gap: 20px;
