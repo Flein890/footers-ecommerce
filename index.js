@@ -14,6 +14,7 @@ const body = document.querySelector("body");
 const cartIcon = document.querySelector(".cart-icon");
 const cart = document.querySelector(".cart");
 const overlay = document.querySelector(".overlay");
+const close = document.querySelector(".cancel");
 //MOUSE
 // const cursor = document.querySelector(".cursor");
 // const cursorFollow = (e) => {
@@ -40,7 +41,7 @@ const toggleOpenedCart = () => {
 };
 //_________________________________________________
 
-const toggleCart = () => {
+const toggleMenu = () => {
   navUl.classList.toggle("translate-cart");
   if (navUl.classList.contains("translate-cart")) {
     body.classList.add("overflowY");
@@ -52,7 +53,7 @@ const toggleCart = () => {
   toggleOpenedCart();
 };
 
-const toggleMenu = () => {
+const toggleCart = () => {
   cart.classList.toggle("move");
   if (cart.classList.contains("move")) {
     body.classList.add("overflowY");
@@ -71,6 +72,7 @@ const closeAll = () => {
   body.classList.remove("overflowY");
 };
 
-labelInput.addEventListener("click", toggleCart);
-cartIcon.addEventListener("click", toggleMenu);
+labelInput.addEventListener("click", toggleMenu);
+cartIcon.addEventListener("click", toggleCart);
 overlay.addEventListener("click", closeAll);
+close.addEventListener("click", closeAll);

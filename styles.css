@@ -29,6 +29,7 @@
   gap: 45px;
   width: 100%;
   z-index: 50;
+  background: url(./Assets/nosei2.svg);
 }
 .cursor {
   top: -5px;
@@ -77,6 +78,9 @@
 .hidden {
   display: none;
 }
+.cancel {
+  display: none;
+}
 
 .label-input {
   display: flex;
@@ -116,11 +120,17 @@
     -moz-transform: translateX(-200%);
     -ms-transform: translateX(-200%);
     -o-transform: translateX(-200%);
-    transition: all 0.5s;
+    transition: transform 0.3s, opacity 0.6s;
     z-index: 2000;
+    opacity: 0;
+    -webkit-transition: transform 0.3s, opacity 0.6s;
+    -moz-transition: transform 0.3s, opacity 0.6s;
+    -ms-transition: transform 0.3s, opacity 0.6s;
+    -o-transition: transform 0.3s, opacity 0.6s;
   }
 }
 .translate-cart {
+  opacity: 1;
   transform: translateX(0px);
   z-index: 2000;
   -webkit-transform: translateX(0px);
@@ -196,23 +206,7 @@
   display: none;
   /* width: 20px; */
 }
-/* ::-webkit-scrollbar-track {
-  background-color: #fff;
-  border-radius: 3em;
-  -webkit-border-radius: 3em;
-  -moz-border-radius: 3em;
-  -ms-border-radius: 3em;
-  -o-border-radius: 3em;
-}
 
-::-webkit-scrollbar-thumb {
-  border-radius: 3em;
-  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
-  -webkit-border-radius: 3em;
-  -moz-border-radius: 3em;
-  -ms-border-radius: 3em;
-  -o-border-radius: 3em;
-} */
 .nav-ul li {
   position: relative;
   padding: 0;
@@ -250,6 +244,8 @@
   align-items: center;
   gap: 50px;
   justify-content: center;
+  border: none;
+  outline: none;
 }
 .nav li a {
   color: var(--primary);
@@ -271,7 +267,6 @@
   position: absolute;
   z-index: 1500;
   background: rgba(31, 161, 46, 0.24);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(2.4px);
   -webkit-backdrop-filter: blur(2.4px);
   left: 0;
@@ -295,22 +290,41 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  width: 340px;
+  width: 400px;
   height: calc(100vh - 90px);
-  /*height: 100vh;
-  */
-  right: 0;
-  background: #ddd;
-  top: 90px;
-  transition: all 0.2s ease-in;
+  right: 20px;
+  background: #fff;
+  top: 110px;
+  overflow-y: auto;
+  transition: all 0.4s ease-in;
   display: none;
   opacity: 0;
   padding: 30px;
-  gap: 20px;
-  -webkit-transition: all 0.2s ease-in;
-  -moz-transition: all 0.2s ease-in;
-  -ms-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
+  gap: 30px;
+  border-radius: 10px;
+  -webkit-transition: all 0.4s ease-in;
+  -moz-transition: all 0.4s ease-in;
+  -ms-transition: all 0.4s ease-in;
+  -o-transition: all 0.4s ease-in;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transform: translateY(40%);
+  -webkit-transform: translateY(40%);
+  -moz-transform: translateY(40%);
+  -ms-transform: translateY(40%);
+  -o-transform: translateY(40%);
+}
+
+.cart-items_container {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.cancel-cart {
+  position: sticky;
+  width: 40px;
 }
 .cart-title {
   font-size: 2.2em;
@@ -318,35 +332,41 @@
 }
 .cart-item {
   display: flex;
+  /*flex-direction: column;
+  */
   width: 300px;
   gap: 15px;
   padding: 10px;
   align-items: center;
-  background-color: #fff;
-  border-radius: 0 15px 15px 0px;
-  -webkit-border-radius: 0 15px 15px 0px;
-  -moz-border-radius: 0 15px 15px 0px;
-  -ms-border-radius: 0 15px 15px 0px;
-  -o-border-radius: 0 15px 15px 0px;
+  border-right: 3px solid var(--back);
+  /*height: 300px;
+  /*/
 }
 .cart-item--info {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 15px;
 }
 .cart-item--price {
   font-weight: 700;
+  /* align-self: start; */
+}
+.cart-item--quantities {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 .cart-item--img {
-  width: 30%;
+  width: 40%;
 }
 .quantities {
   display: flex;
+  /* align-self: center; */
+  gap: 10px;
   align-items: center;
-  gap: 5px;
 }
 .quantity-handler {
-  padding: 0px 10px;
+  padding: 5px 15px;
   border: none;
   cursor: pointer;
 }
@@ -354,11 +374,11 @@
   opacity: 1;
   z-index: 1600;
   display: flex;
-  /* transform: translateX(0%);
-  -webkit-transform: translateX(0%);
-  -moz-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  -o-transform: translateX(0%); */
+  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -o-transform: translateY(0%);
 }
 /*________________________________Carrousel________________________*/
 
@@ -368,6 +388,7 @@
   gap: 30px;
   display: flex;
   max-width: 1600px;
+  /* width: 100%; */
   flex-direction: column;
 }
 .images {
@@ -528,6 +549,7 @@
   backdrop-filter: blur(5.9px);
   -webkit-backdrop-filter: blur(5.9px);
   border: 1px solid rgba(255, 255, 255, 0.01);
+  background: #fff;
 }
 
 .new-card {
@@ -540,6 +562,7 @@
   box-shadow: none;
   backdrop-filter: blur(5.9px);
   -webkit-backdrop-filter: blur(5.9px);
+  background: #fff;
 }
 .new-card::before {
   content: "New!";
@@ -864,7 +887,47 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
+  .nav li a {
+    color: var(--back);
+  }
+  .nav-ul {
+    align-items: start;
+    gap: 45px;
+    padding-left: 15px;
+    font-size: 1.6em;
+    background: #fff;
+    /* justify-content: start; */
+    overflow-y: auto;
+    background-image: url(Assets/ssspill.svg);
+    background-repeat: no-repeat;
+  }
+  .nav-ul li a::after {
+    height: 4px;
+    background-color: var(--optional);
+  }
+  .cancel {
+    display: block;
+    width: 40px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+  .cancel:hover {
+    background-color: red;
+  }
   .controls {
     display: none;
   }
@@ -907,11 +970,14 @@
   .new-title {
     font-size: 2em;
   }
-
   #sales-input {
     padding: 15px 10px;
   }
   .sub-btn {
     padding: 0 10px;
+  }
+  .h3-normal,
+  .h3-inverted {
+    font-size: 1.7em;
   }
 }
