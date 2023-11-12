@@ -38,7 +38,7 @@
       <img class="logo" src="Assets/Logo/logo.png" alt="logo" />
       <nav class="nav">
         <ul class="nav nav-ul">
-          <img src="Assets/square.png" class="cancel" alt="" />
+          <img src="Assets/icons/square.png" class="cancel" alt="" />
           <li><a href="">Kids</a></li>
           <li><a href="">Men</a></li>
           <li><a href="">Woman</a></li>
@@ -52,9 +52,8 @@
         <input type="checkbox" id="check-input" />
       </nav>
       <div class="cart">
-        <img src="Assets/square.png" class="cancel-cart" alt="" />
+        <img src="Assets/icons/square.png" class="cancel-cart" alt="" />
         <h3 class="cart-title">Cart</h3>
-        <span class="cart-divider"></span>
         <div class="cart-items_container">
           <div class="cart-item">
             <img
@@ -96,6 +95,34 @@
               </div>
             </div>
           </div>
+          <div class="cart-item">
+            <img
+              class="cart-item--img"
+              src="Assets/trainers/1068636-500-auto.jpg"
+              alt=""
+            />
+            <div class="cart-item--info">
+              <span class="cart-item--title"
+                >Adidas Trainers Duramo Protect</span
+              >
+              <div class="cart-item--quantities">
+                <div class="quantities">
+                  <button class="quantity-handler minus">-</button>
+                  <span class="cart-item--quantity">1</span>
+                  <button class="quantity-handler plus">+</button>
+                </div>
+                <span class="cart-item--price">$59.99</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-total--container">
+          <div class="cart-total">
+            <span class="cart-total--title">Total:</span>
+            <span class="cart-price--total">$59.99</span>
+          </div>
+          <div class="cart-divider"></div>
+          <button class="cart-btn">Checkout</button>
         </div>
       </div>
       <img class="logo-hidden" src="Assets/Logo/logo.png" alt="logo" />
@@ -183,11 +210,7 @@
         <h2 class="new-title">On sale this week</h2>
         <div class="cards-container">
           <div class="card new-card">
-            <img
-              class="card--img"
-              src="Assets/trainers/1068636-500-auto.jpg"
-              alt=""
-            />
+            <img src="Assets/trainers/1068636-500-auto.jpg" alt="" />
             <div class="card--info">
               <span class="title">Zapatillas adidas Duramo Protect</span>
               <span class="price">$59.99</span>
@@ -198,7 +221,7 @@
           </div>
         </div>
       </section>
-      <div class="banner-container">
+      <!-- <div class="banner-container">
         <div class="brand-title">
           <span class="horizontal-line"></span>
           <h3>Featured</h3>
@@ -227,8 +250,7 @@
           src="Assets/offersImg/new-arrival-shoes-sale-design-template-335b726ae54f0595018bfa54469a6cee_screen.jpg"
           alt=""
         />
-      </div>
-
+      </div> -->
       <section class="brands">
         <div class="brand-title">
           <span class="horizontal-line"></span>
@@ -282,8 +304,14 @@
       <div class="separator"></div>
       <section id="products">
         <h3>Trending Products</h3>
+        <div class="categories">
+          <button class="category-btn active">All</button>
+          <button class="category-btn" data-category="men">Men</button>
+          <button class="category-btn" data-category="women">Woman</button>
+          <button class="category-btn" data-category="unisex">Unisex</button>
+        </div>
         <div class="products--container">
-          <div class="card">
+          <!-- <div class="card">
             <img
               class="card--img"
               src="Assets/trainers/1068636-500-auto.jpg"
@@ -296,21 +324,7 @@
             <button class="btn">
               <img src="Assets/icons/shopping-cart.png" alt="cart" />Add to cart
             </button>
-          </div>
-          <div class="card">
-            <img
-              class="card--img"
-              src="Assets/trainers/1068636-500-auto.jpg"
-              alt=""
-            />
-            <div class="card--info">
-              <span class="title">Zapatillas adidas Duramo Protect</span>
-              <span class="price">$59.99</span>
-            </div>
-            <button class="btn">
-              <img src="Assets/icons/shopping-cart.png" alt="cart" />Add to cart
-            </button>
-          </div>
+          </div> -->
         </div>
         <button id="show-more">Show More</button>
       </section>
@@ -374,7 +388,7 @@
       </div>
       <div class="creator"><p>Designed by Franco Villanova</p></div>
     </footer>
-    <!-- <div class="cursor"></div> -->
+    <script src="data.js"></script>
     <script src="Assets/carrousel.js"></script>
     <script src="index.js"></script>
   </body>

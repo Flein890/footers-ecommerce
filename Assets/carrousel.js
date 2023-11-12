@@ -105,13 +105,3 @@ setInterval(() => {
   next();
   nextBrandSlide();
 }, 3000);
-
-const init = () => {
-  prevBrand.addEventListener("click", prevBrandSlide);
-  nextBrand.addEventListener("click", nextBrandSlide);
-  //_____________________________________________//
-  nextButton.addEventListener("click", next);
-  prevButton.addEventListener("click", prev);
-};
-
-init();
