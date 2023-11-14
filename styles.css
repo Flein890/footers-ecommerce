@@ -24,6 +24,8 @@
 .overflowY {
   overflow-y: hidden;
 }
+.arreglar-gap-del-main {
+}
 .main {
   display: flex;
   flex-direction: column;
@@ -32,6 +34,9 @@
   width: 100%;
   z-index: 50;
   /* background: url(./Assets/nosei2.svg); */
+  /* background: url(Assets/backgrounds/fondo.jpg);
+  background-size: 100% 50%; */
+  /* opacity: 0.6; */
 }
 .cursor {
   top: -5px;
@@ -326,17 +331,25 @@
   display: flex;
   flex-direction: column;
   gap: 50px;
-  height: 320px;
+  height: 350px;
   overflow-y: scroll;
+  justify-self: end;
 }
-.arreglarcarrito {
-}
+
 .cancel-cart {
   position: sticky;
   width: 40px;
   align-self: flex-start;
   cursor: pointer;
   margin: 20px;
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  -ms-transition: all 0.1s;
+  -o-transition: all 0.1s;
+}
+.cancel-cart:hover {
+  scale: 1.07;
 }
 .cart-title {
   font-size: 2.2em;
@@ -414,7 +427,7 @@
   flex-direction: column;
   font-size: 1.5em;
   box-shadow: 0 0 15px 0 #444;
-  height: 200px;
+  height: 170px;
   padding: 20px;
   justify-content: space-between;
   position: absolute;
@@ -525,15 +538,25 @@
   justify-content: center;
   align-items: center;
   gap: 20px;
+  padding: 15px 15px;
+  /* background-color: #f6f6f9; */
+  background-color: var(--back);
+  width: fit-content;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  margin: 0 auto;
 }
 .dot-container {
-  padding: 2px;
+  padding: 1px;
   width: 20px;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid var(--back);
+  border: 1px solid var(--primary);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -552,7 +575,7 @@
 }
 
 .dot-selected {
-  background-color: var(--back);
+  background-color: var(--primary);
 }
 
 /*__________________________benefits_________________________________*/
@@ -659,7 +682,7 @@
   align-self: center;
   font-size: 2em;
   position: absolute;
-  background-color: #fff;
+  background: linear-gradient(to top, #fff, #ddd);
   color: var(--secondary);
 }
 /*________________________*/
@@ -813,8 +836,20 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  max-width: 1400px;
+  width: 100%;
+  background-image: url(Assets/backgrounds/fondo.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.section-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 60px;
+  max-width: 1400px;
+  padding-bottom: 45px;
+  padding-top: 45px;
 }
 #products h3 {
   font-size: 2em;
@@ -1037,8 +1072,8 @@
     background: #fff;
     /* justify-content: start; */
     overflow-y: auto;
-    background-image: url(Assets/backgrounds/ssspill.svg);
-    background-repeat: no-repeat;
+    /* background-image: url(Assets/backgrounds/ssspill.svg);
+    background-repeat: no-repeat; */
   }
   .nav-ul li a::after {
     height: 4px;
@@ -1052,11 +1087,11 @@
     right: 10px;
     cursor: pointer;
     background-color: #fff;
-    transition: all 0.2s;
-    -webkit-transition: all 0.2s;
-    -moz-transition: all 0.2s;
-    -ms-transition: all 0.2s;
-    -o-transition: all 0.2s;
+    transition: all 0.1s;
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -ms-transition: all 0.1s;
+    -o-transition: all 0.1s;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
@@ -1064,7 +1099,7 @@
     -o-border-radius: 5px;
   }
   .cancel:hover {
-    background-color: red;
+    scale: 1.07;
   }
   .controls {
     display: none;
@@ -1117,5 +1152,25 @@
   .h3-normal,
   .h3-inverted {
     font-size: 1.7em;
+  }
+}
+
+@media (max-width: 500px) {
+  .categories {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+  .category-btn {
+    width: 80px;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+  }
+}
+@media (max-width: 375px) {
+  .cart {
+    width: 310px;
   }
 }
