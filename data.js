@@ -404,9 +404,9 @@ const chunk = (size) => {
 // console.log(chunk(6));
 
 const appState = {
-  products: chunk(8),
+  products: chunk(12),
   currentProductIndex: 0,
-  productsLimit: chunk(8).length,
+  productsLimit: chunk(12).length,
   activeFilter: null,
 };
 // console.log(appState);
