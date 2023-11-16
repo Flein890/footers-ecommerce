@@ -24,31 +24,16 @@
 .overflowY {
   overflow-y: hidden;
 }
-.arreglar-gap-del-main {
-}
 .main {
   display: flex;
   flex-direction: column;
   align-items: center;
   /* gap: 45px; */
+  background-color: #fefefe;
   width: 100%;
   z-index: 50;
-  background-color: #fefefe;
 }
-.cursor {
-  top: -5px;
-  left: -5px;
-  width: 15px;
-  height: 15px;
-  background-color: #333333;
-  position: absolute;
-  z-index: 10000;
-  border-radius: 50%;
-  -webkit-border-radius: 50%;
-  -moz-border-radius: 50%;
-  -ms-border-radius: 50%;
-  -o-border-radius: 50%;
-}
+
 .main-title {
   width: 100%;
   height: 90px;
@@ -452,6 +437,12 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
+.disabled {
+  cursor: not-allowed;
+  background-color: var(--back);
+  color: var(--primary);
+  opacity: 0.7;
+}
 @keyframes borderAnimation {
   0% {
     border-right: 3px solid var(--secondary);
@@ -619,7 +610,7 @@
 /*____________________________NEW____________________________________*/
 #new {
   display: flex;
-  gap: 5em;
+  gap: 3em;
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
@@ -852,9 +843,13 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  background-image: url(Assets/backgrounds/fondo.jpg);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
+  background-image: radial-gradient(73% 147%, #fefefe 59%, #ece2df 100%),
+    radial-gradient(
+      91% 146%,
+      rgba(255, 255, 255, 0.5) 47%,
+      rgba(0, 0, 0, 0.5) 100%
+    );
+  background-blend-mode: screen;
 }
 .section-container {
   display: flex;
@@ -898,9 +893,6 @@
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
-}
-.category-btn:hover {
-  color: #046017;
 }
 .active {
   background-color: var(--back);
