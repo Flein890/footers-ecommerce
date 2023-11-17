@@ -1,13 +1,3 @@
-const newTitle = document.querySelector(".new-title");
-setInterval(() => {
-  newTitle.classList.add("animate__heartBeat");
-}, 1500);
-setInterval(() => {
-  newTitle.classList.remove("animate__heartBeat");
-}, 3000);
-
-//Menu hamburguesa y carrito
-
 const labelInput = document.querySelector(".label-input");
 const navUl = document.querySelector(".nav-ul");
 const body = document.querySelector("body");
@@ -26,6 +16,13 @@ const cartTotal = document.querySelector(".cart-price--total");
 const buy = document.querySelector(".cart-btn");
 const cartItemsContainer = document.querySelector(".cart-items_container");
 const cartItemQuantity = document.querySelector(".cart-item--quantity");
+const newTitle = document.querySelector(".new-title");
+setInterval(() => {
+  newTitle.classList.add("animate__heartBeat");
+}, 1500);
+setInterval(() => {
+  newTitle.classList.remove("animate__heartBeat");
+}, 3000);
 
 let items = [];
 
@@ -110,12 +107,12 @@ const addUnitsToProduct = (product) => {
   );
 };
 
-//funcion parq crear un item para el carrito
+//CREATE ITEM FOR CART
 const createCartProduct = (product) => {
   items = [...items, { ...product, quantity: 1 }];
 };
 
-//Funcion para saber si un producto ya existe en el carro
+//DETERMINE IF A PRODUCT ALREADY EXISTS
 const existsInCart = (product) => {
   return items.find((item) => item.id === product.id);
 };
@@ -155,21 +152,17 @@ const quantityHandler = (e) => {
   updateCartState();
 };
 
-cartItemsContainer.addEventListener("click", quantityHandler);
-document.addEventListener("DOMContentLoaded", isEmptyCart);
-productsContainer.addEventListener("click", addProduct);
+//----------------------------------FILTROS---------------------------------//
 
-/* --------- Logica filtros ---------- */
-// Funcion para cambiar el estado de los botones de las categorias
 const changeBtnActiveState = (selectedCategory) => {
   const categories = [...categoriesBtn];
-
   categories.forEach((categoryBtn) => {
+    // Remove the "active" class from buttons with a different category
     if (categoryBtn.dataset.category !== selectedCategory) {
       categoryBtn.classList.remove("active");
       return;
     }
-
+    // Add the "active" class to the button with the selected category
     categoryBtn.classList.add("active");
   });
 };
@@ -183,20 +176,23 @@ const setShowMoreVisibility = () => {
   showMoreBtn.style.display = "block";
 };
 
-// Funcion para cambiar el estado del filtro activo
+//FILTER STATE
 const changeFiltersState = (btn) => {
+  // Update the active filter in the application state
   appState.activeFilter = btn.dataset.category;
+  // Change the active state of the buttons based on the active filter
   changeBtnActiveState(appState.activeFilter);
+  // Update the visibility of the "show more" section based on the active filter
   setShowMoreVisibility(appState.activeFilter);
-  // showMoreBtn.style.display = "none";
 };
 
-// Funcion para filtrar los productos
+//FILTER PRODUCTS
 const renderFilteredProducts = () => {
+  // Filter the products based on the active filter
   const filteredProducts = data.filter(
     (product) => product.category === appState.activeFilter
   );
-
+  // Render the filtered products
   renderProducts(filteredProducts);
 };
 
@@ -207,27 +203,32 @@ const isInactiveFilterBtn = (element) => {
   );
 };
 // Funcion para aplicar filtro
-const applyFilter = ({ target }) => {
-  // console.log(target);
-  if (!isInactiveFilterBtn(target)) return;
-  changeFiltersState(target);
+const applyFilter = (event) => {
+  // Checks if the filter button is not inactive
+  if (!isInactiveFilterBtn(event.target)) return;
+  // Changes the state of the filters
+  changeFiltersState(event.target);
+  // Clears the products container
   productsContainer.innerHTML = "";
+  // Renders the filtered products if an active filter is set
   if (appState.activeFilter) {
     renderFilteredProducts();
     appState.currentProductsIndex = 0;
     return;
   }
+  // Renders the products using the first set of products
   renderProducts(appState.products[0]);
-  // console.log(appState.products);
-  // console.log(target);
-  // showMoreBtn.style.display = "block";
 };
 
 //_____________________________________________________________________________________________
 const showMoreProducts = () => {
+  // Increase the current product index by 1
   appState.currentProductIndex += 1;
+  // Render the next product
   renderProducts(appState.products[appState.currentProductIndex]);
+  // Check if the current product index has reached the products limit
   if (appState.currentProductIndex === appState.productsLimit - 1) {
+    // Hide the "Show More" button
     showMoreBtn.style.display = "none";
   }
 };
@@ -256,7 +257,7 @@ const renderProducts = (productsList) => {
 };
 renderProducts(appState.products[0]);
 
-//funciones para que solo se abra un carrito
+//FUNCTION TO OPEN AND CLOSE CART AND MENU OR VICEVERSA
 const toggleOpenedMenu = () => {
   if (navUl.classList.contains("translate-cart")) {
     body.classList.remove("overflowY");
@@ -319,6 +320,9 @@ const init = () => {
   categoriesList.addEventListener("click", applyFilter);
   //___________________________________________//
   document.addEventListener("DOMContentLoaded", renderCart);
+  cartItemsContainer.addEventListener("click", quantityHandler);
+  document.addEventListener("DOMContentLoaded", isEmptyCart);
+  productsContainer.addEventListener("click", addProduct);
 };
 
 init();
