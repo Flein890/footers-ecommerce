@@ -10,13 +10,13 @@ const productsContainer = document.querySelector(".products--container");
 const showMoreBtn = document.querySelector("#show-more");
 const categoriesBtn = document.querySelectorAll(".category-btn");
 const categoriesList = document.querySelector(".categories");
-// carrito
 const cartBubbleCounter = document.querySelector(".cart-counter");
 const cartTotal = document.querySelector(".cart-price--total");
 const buy = document.querySelector(".cart-btn");
 const cartItemsContainer = document.querySelector(".cart-items_container");
 const cartItemQuantity = document.querySelector(".cart-item--quantity");
 const newTitle = document.querySelector(".new-title");
+
 setInterval(() => {
   newTitle.classList.add("animate__heartBeat");
 }, 1500);
@@ -24,7 +24,13 @@ setInterval(() => {
   newTitle.classList.remove("animate__heartBeat");
 }, 3000);
 
-let items = [];
+//Function to save items to localStorage
+const saveToLocalStorage = () => {
+  localStorage.setItem("items", JSON.stringify(items));
+};
+
+//get items from localStorage
+let items = JSON.parse(localStorage.getItem("items")) || [];
 
 const cartProductTemplate = ({ id, image, name, price, quantity }) => {
   return `<div class="cart-item">
@@ -75,12 +81,13 @@ const renderCart = () => {
 };
 
 const updateCartState = () => {
+  saveToLocalStorage();
   renderCart();
   isEmptyCart();
   showCartTotal();
   changeBubbleCount();
-};
 
+};
 const addProduct = (event) => {
   if (!event.target.classList.contains("btn")) return;
   const product = event.target.dataset;
@@ -90,7 +97,7 @@ const addProduct = (event) => {
     createCartProduct(product);
   }
   updateCartState();
-
+  // saveToLocalStorage();
   console.log(items);
 };
 const isEmptyCart = () => {
@@ -323,6 +330,10 @@ const init = () => {
   cartItemsContainer.addEventListener("click", quantityHandler);
   document.addEventListener("DOMContentLoaded", isEmptyCart);
   productsContainer.addEventListener("click", addProduct);
+  //___________________________________________//
+  document.addEventListener("DOMContentLoaded", updateCartState);
 };
 
 init();
+
+console.log(items)

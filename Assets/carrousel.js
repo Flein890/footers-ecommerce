@@ -10,7 +10,7 @@ console.log(dots);
 //This is the width i have to slide to the next img
 const slideWidth = slider.clientWidth;
 
-//Funcion para que se actualice la pagina en caso de que el clientWidth de los carruseles cambie
+//update page if clientwidth != carrouselwidth
 function onClientWidth() {
   if (
     slideWidth !== slider.clientWidth ||
@@ -36,7 +36,7 @@ const next = () => {
   } else {
     slideIndex++;
   }
-  // onClientWidth();
+  onClientWidth();
   slideMovement();
   toggleDots();
 };

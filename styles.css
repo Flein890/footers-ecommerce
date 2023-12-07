@@ -537,8 +537,8 @@
   align-items: center;
   gap: 20px;
   padding: 15px 15px;
-  /* background-color: #f6f6f9; */
-  background-color: var(--back);
+  /* background-color: #000; */
+  /* background-color: var(--back); */
   width: fit-content;
   border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -548,19 +548,19 @@
   margin: 0 auto;
 }
 .dot-container {
-  padding: 1px;
   width: 20px;
   height: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid var(--primary);
+  border: 2px solid var(--back);
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   -ms-border-radius: 50%;
   -o-border-radius: 50%;
   cursor: pointer;
+  /* background-color:var(--primary); */
 }
 .dot {
   width: 10px;
@@ -573,7 +573,7 @@
 }
 
 .dot-selected {
-  background-color: var(--primary);
+  background-color: var(--back);
 }
 
 /*__________________________benefits_________________________________*/
@@ -669,7 +669,7 @@
 
 .new-card {
   min-width: 400px;
-  height: 550px;
+  height: fit-content;
   border: 2px solid var(--secondary);
   position: relative;
   background: rgba(255, 255, 255, 0.16);
@@ -691,6 +691,19 @@
   color: var(--secondary);
 }
 /*________________________*/
+.new-card--info{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.new-item__title{
+  font-size: 1.5em;
+}
+.new-item--price{
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--optional);
+}
 .card--info {
   display: flex;
   justify-content: space-between;
@@ -767,6 +780,7 @@
   gap: 60px;
   overflow-x: hidden;
   margin-top: 45px;
+  /* max-height: 400px; */
 }
 
 .brand-title {
@@ -800,6 +814,8 @@
   -moz-transition: all 0.2s;
   -ms-transition: all 0.2s;
   -o-transition: all 0.2s;
+  align-items: center;
+  /* justify-content: center; */
 }
 .brand--img__container {
   min-width: 100%;
@@ -809,8 +825,10 @@
 }
 
 .brand--img {
-  max-width: 110px;
+ max-width: 110px;
   max-height: 80px;
+  aspect-ratio: 1/1;
+  object-fit: contain;
 }
 
 .controls--brand {
@@ -820,6 +838,8 @@
   left: 15%;
   display: flex;
   justify-content: space-between;
+  height: 100px;
+  align-items: center;
 }
 .next__brand,
 .prev__brand {
@@ -1078,6 +1098,9 @@
   .nav {
     gap: 20px;
   }
+  .media-hide--976{
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1173,6 +1196,12 @@
   .h3-inverted {
     font-size: 1.7em;
   }
+  .media-hide--576{
+    display: none;
+  }
+  .brand--carrousel__images{
+    /* width: 40%; */
+  }
 }
 
 @media (max-width: 500px) {
@@ -1198,5 +1227,11 @@
 @media (max-width: 375px) {
   .cart {
     width: 310px;
+  }
+}
+
+@media (max-width: 400px) {
+  .media-hide--400{
+    display: none;
   }
 }
