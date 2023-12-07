@@ -16,6 +16,7 @@
   scrollbar-width: thin;
   font-family: "PP Neue Montreal", sans-serif;
 }
+
 .body {
   display: flex;
   flex-direction: column;
@@ -356,8 +357,7 @@
   -ms-transition: all 1s;
   -o-transition: all 1s;
 }
-.cart-item:hover {
-}
+
 .cart-item--info {
   display: flex;
   flex-direction: column;
