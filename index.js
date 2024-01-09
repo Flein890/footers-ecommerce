@@ -98,7 +98,7 @@ const addProduct = (event) => {
   }
   updateCartState();
   // saveToLocalStorage();
-  console.log(items);
+  // console.log(items);
 };
 const isEmptyCart = () => {
   if (!items.length) {
@@ -336,4 +336,4 @@ const init = () => {
 
 init();
 
-console.log(items)
+// console.log(items)

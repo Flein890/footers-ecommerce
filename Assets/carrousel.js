@@ -5,7 +5,7 @@ const prevButton = document.querySelector(".prev");
 //DOTS
 const dotsHTML = document.querySelectorAll(".dot");
 const dots = [...dotsHTML];
-console.log(dots);
+// console.log(dots);
 
 //This is the width i have to slide to the next img
 const slideWidth = slider.clientWidth;
@@ -68,7 +68,7 @@ const nextBrand = document.querySelector(".next__brand");
 const slideWidthBrand = brandCarrousel.clientWidth;
 //________________________________________________________________
 
-console.log(slideWidthBrand);
+// console.log(slideWidthBrand);
 let indexBrand = 0;
 
 const slidePerBrands = () => {
@@ -80,10 +80,10 @@ const slidePerBrands = () => {
 const nextBrandSlide = () => {
   if (indexBrand === brandCarrousel.children.length - 1) {
     indexBrand = 0;
-    console.log(indexBrand);
+    // console.log(indexBrand);
   } else {
     indexBrand++;
-    console.log(indexBrand);
+    // console.log(indexBrand);
   }
   // onClientWidth();
   slidePerBrands();
@@ -92,10 +92,10 @@ const nextBrandSlide = () => {
 const prevBrandSlide = () => {
   if (indexBrand === 0) {
     indexBrand = brandCarrousel.children.length - 1; //slideIndex tomara el valor final
-    console.log(indexBrand);
+    // console.log(indexBrand);
   } else {
     indexBrand--;
-    console.log(indexBrand);
+    // console.log(indexBrand);
   }
   slidePerBrands();
 };
